@@ -25,3 +25,54 @@ Go to the app folder:
 Serve the app:
 
 ``` npm run serve ```
+
+## branch "step-2"
+
+### Add TailwindCSS
+
+Install TailwindCSS:
+
+``` npm install tailwindcss ```
+
+Add a postcss.config.js file:
+
+```
+// postcss.config.js
+const autoprefixer = require('autoprefixer');
+const tailwindcss = require('tailwindcss');
+
+module.exports = {
+  plugins: [
+    tailwindcss,
+    autoprefixer,
+  ],
+};
+
+```
+
+We have to import Tailwind CSS into our project.
+
+We create a new index.css file in src/assets/styles and load all Tailwind related styles in it.
+Then we import the file in main.js, the entry point of our app.
+
+```
+// src/assets/styles/index.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+```
+// src/main.js
+ import Vue from 'vue';
+ import App from './App.vue';
+
++import './assets/styles/index.css';
+
+ Vue.config.productionTip = false;
+
+ new Vue({
+   render: h => h(App),
+ }).$mount(`#app`);
+ 
+ ```
