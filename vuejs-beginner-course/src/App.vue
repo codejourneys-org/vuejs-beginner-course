@@ -1,10 +1,13 @@
 <template>
   <div id="app">
     <div class="w-full container mx-auto flex flex-wrap">
-      <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+      <div
+        v-for="(product, index) in products"
+        :key="`key-${index}`"
+        class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
         <img class="product-image" src="@/assets/images/products/pic1.jpg" />
         <div class="inline-flex justify-between align-middle">
-          <h3 class="product-title">Product title</h3>
+          <h3 class="product-title">{{ product.title }}</h3>
           <svg
             class="add-to-cart-icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -18,178 +21,17 @@
           </svg>
         </div>
         <p class="text-base text-gray-500 mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt.
+          {{ product.description }}
         </p>
         <div class="flex flex-wrap text-xs">
-          <span class="tag">SUMMER</span>
-          <span class="tag">SUMMER</span>
+          <span
+            v-for="(tag, tagIndex) in product.tags"
+            :key="`tag-${index}-${tagIndex}`"
+            class="tag">
+              {{ tag }}
+          </span>
         </div>
-        <p class="price">100,00€</p>
-      </div>
-
-      <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-        <img class="product-image" src="@/assets/images/products/pic2.jpg" />
-        <div class="inline-flex justify-between align-middle">
-          <h3 class="product-title">Product title</h3>
-          <svg
-            class="add-to-cart-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-          >
-            <path
-              d="M4 2h16l-3 9H4a1 1 0 1 0 0 2h13v2H4a3 3 0 0 1 0-6h.33L3 5 2
-              2H0V0h3a1 1 0 0 1 1 1v1zm1 18a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm10 0a2
-              2 0 1 1 0-4 2 2 0 0 1 0 4z"
-            />
-          </svg>
-        </div>
-        <p class="text-base text-gray-500 mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt.
-        </p>
-        <div class="flex flex-wrap text-xs">
-          <span class="tag">SUMMER</span>
-          <span class="tag">SUMMER</span>
-        </div>
-        <p class="not-in-stock">Not in stock</p>
-      </div>
-
-      <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-        <img class="product-image" src="@/assets/images/products/pic3.jpg" />
-        <div class="inline-flex justify-between align-middle">
-          <h3 class="product-title">Product title</h3>
-          <svg
-            class="add-to-cart-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-          >
-            <path
-              d="M4 2h16l-3 9H4a1 1 0 1 0 0 2h13v2H4a3 3 0 0 1 0-6h.33L3 5 2
-              2H0V0h3a1 1 0 0 1 1 1v1zm1 18a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm10 0a2
-              2 0 1 1 0-4 2 2 0 0 1 0 4z"
-            />
-          </svg>
-        </div>
-        <p class="text-base text-gray-500 mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt.
-        </p>
-        <div class="flex flex-wrap text-xs">
-          <span class="tag">SUMMER</span>
-          <span class="tag">SUMMER</span>
-        </div>
-        <p class="price">
-          <span class="price-before-discount">200,00€</span> 100,00€
-        </p>
-      </div>
-
-      <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-        <img class="product-image" src="@/assets/images/products/pic4.jpg" />
-        <div class="inline-flex justify-between align-middle">
-          <h3 class="product-title">Product title</h3>
-          <svg
-            class="add-to-cart-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-          >
-            <path
-              d="M4 2h16l-3 9H4a1 1 0 1 0 0 2h13v2H4a3 3 0 0 1 0-6h.33L3 5 2
-              2H0V0h3a1 1 0 0 1 1 1v1zm1 18a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm10 0a2
-              2 0 1 1 0-4 2 2 0 0 1 0 4z"
-            />
-          </svg>
-        </div>
-        <p class="text-base text-gray-500 mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt.
-        </p>
-        <div class="flex flex-wrap text-xs">
-          <span class="tag">SUMMER</span>
-          <span class="tag">SUMMER</span>
-        </div>
-        <p class="price">100,00€</p>
-      </div>
-
-      <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-        <img class="product-image" src="@/assets/images/products/pic5.jpg" />
-        <div class="inline-flex justify-between align-middle">
-          <h3 class="product-title">Product title</h3>
-          <svg
-            class="add-to-cart-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-          >
-            <path
-              d="M4 2h16l-3 9H4a1 1 0 1 0 0 2h13v2H4a3 3 0 0 1 0-6h.33L3 5
-              2 2H0V0h3a1 1 0 0 1 1 1v1zm1 18a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm10
-              0a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"
-            />
-          </svg>
-        </div>
-        <p class="text-base text-gray-500 mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt.
-        </p>
-        <div class="flex flex-wrap text-xs">
-          <span class="tag">SUMMER</span>
-          <span class="tag">SUMMER</span>
-        </div>
-        <p class="price">130,00€</p>
-      </div>
-
-      <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-        <img class="product-image" src="@/assets/images/products/pic6.jpg" />
-        <div class="inline-flex justify-between align-middle">
-          <h3 class="product-title">Product title</h3>
-          <svg
-            class="add-to-cart-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-          >
-            <path
-              d="M4 2h16l-3 9H4a1 1 0 1 0 0 2h13v2H4a3 3 0 0 1 0-6h.33L3 5 2
-              2H0V0h3a1 1 0 0 1 1 1v1zm1 18a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm10 0a2
-              2 0 1 1 0-4 2 2 0 0 1 0 4z"
-            />
-          </svg>
-        </div>
-        <p class="text-base text-gray-500 mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt.
-        </p>
-        <div class="flex flex-wrap text-xs">
-          <span class="tag">SUMMER</span>
-          <span class="tag">SUMMER</span>
-        </div>
-        <p class="price">100,00€</p>
-      </div>
-
-      <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
-        <img class="product-image" src="@/assets/images/products/pic7.jpg" />
-        <div class="inline-flex justify-between align-middle">
-          <h3 class="product-title">Product title</h3>
-          <svg
-            class="add-to-cart-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-          >
-            <path
-              d="M4 2h16l-3 9H4a1 1 0 1 0 0 2h13v2H4a3 3 0 0 1 0-6h.33L3
-              5 2 2H0V0h3a1 1 0 0 1 1 1v1zm1 18a2 2 0 1 1 0-4 2 2 0 0 1
-              0 4zm10 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"
-            />
-          </svg>
-        </div>
-        <p class="text-base text-gray-500 mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt.
-        </p>
-        <div class="flex flex-wrap text-xs">
-          <span class="tag">SUMMER</span>
-          <span class="tag">SUMMER</span>
-        </div>
-        <p class="price">100,00€</p>
+        <p class="price">{{ product.price }}€</p>
       </div>
     </div>
   </div>
@@ -198,6 +40,29 @@
 <script>
 export default {
   name: 'App',
+
+  data: () => ({
+    products: [{
+      title: 'Product title',
+      img: 'pic1',
+      price: '100',
+      tags: ['Summer', 'Winter'],
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+    }, {
+      title: 'Product title',
+      price: '100',
+      img: 'pic2',
+      tags: ['Summer', 'Winter'],
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+    }, {
+      title: 'Product title',
+      price: '100',
+      img: 'pic3',
+      tags: ['Summer', 'Winter'],
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
+    }],
+    title2: 'Another nice title',
+  }),
 };
 </script>
 
