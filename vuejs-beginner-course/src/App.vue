@@ -4,12 +4,14 @@
       <div
         v-for="(product, index) in products"
         :key="`key-${index}`"
-        class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+        class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col"
+      >
         <img class="product-image" src="@/assets/images/products/pic1.jpg" />
         <div class="inline-flex justify-between align-middle">
           <h3 class="product-title">{{ product.title }}</h3>
+          <button
+            class="add-to-cart-icon">
           <svg
-            class="add-to-cart-icon"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 20 20"
           >
@@ -19,6 +21,7 @@
               1 1 0-4 2 2 0 0 1 0 4z"
             />
           </svg>
+          </button>
         </div>
         <p class="text-base text-gray-500 mb-4">
           {{ product.description }}
@@ -27,8 +30,9 @@
           <span
             v-for="(tag, tagIndex) in product.tags"
             :key="`tag-${index}-${tagIndex}`"
-            class="tag">
-              {{ tag }}
+            class="tag"
+          >
+            {{ tag }}
           </span>
         </div>
         <p class="price">{{ product.price }}€</p>
@@ -46,6 +50,7 @@ export default {
       title: 'Product title',
       img: 'pic1',
       price: '100',
+      discountPrice: '50',
       tags: ['Summer', 'Winter'],
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
     }, {
@@ -108,7 +113,7 @@ export default {
 }
 
 .add-to-cart-icon {
-  @apply fill-current w-4 h-4 mt-2 align-middle text-gray-600;
+  @apply fill-current w-4 h-3 pt-2 mt-0 align-middle text-gray-600;
 }
 
 .add-to-cart-icon:hover {
